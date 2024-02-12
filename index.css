@@ -20,9 +20,11 @@ body {
 
 
 header {
+    @media screen and (min-width: 800px) {
    display: grid;
    grid-template-columns: 1fr 1fr;
    grid-auto-rows: auto;
+    }
 }
 
 
@@ -66,14 +68,19 @@ header > div > div {
     <section id="grid">
 */
 
-#flexbox {
-    display: table-column;
+#flexbox #canvas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #canvas {
+    @media screen and (min-width: 800px) {
     display: flex;
     justify-content: center;
     align-items: center;
+    }
 }
 
 #canvas h2 {
@@ -97,16 +104,19 @@ header > div > div {
         The <div> inside the section must start at column two and span two columns, start at row three and span three columns
 */
 
+
 #grid {
     @media screen and (min-width: 800px) {
         display: flex;
-        grid-template-rows: auto repeat(4, 250px);
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto 250px 250px 250px 250px ;
+        grid-template-columns: repeat(3, 1fr);
         }
     }
 
-#grid > div {
-    padding: 1em 1em 1em 1em;
+#grid > * {
+    @media screen and (min-width: 800px) {
+    padding: 1em
+    }
 }
 
 #grid {
@@ -124,16 +134,18 @@ header > div > div {
     }   
 }
 
-#grid div p:first-child{
-    @media screen and (min-width: 800px) {
+#grid p:first-of-type{
     grid-column: span 2;
-    }
 }
 
+#grid div {
+    grid-column: 2 / span 2 ;
+    grid-row: 3 / span 3;
+     
 
 /*
 
-    <footer>
+    <footer>gt 
 
         The <div> inside the footer must be display: flex, with its child elements laid out in a column on screens with a width below 800px, and laid out in a row on screens with a minimum width of 800px.
 
@@ -142,3 +154,36 @@ header > div > div {
         On screens wider than 800px, the <p> element inside the div must additionally have no top margin
 
 */
+
+footer div{
+    display: flex;  
+    flex-direction: column;
+    width: 8000px;
+
+
+
+}
+
+footer div p {
+    order: 2;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    display: flex;
+    margin-top: 0;
+}
+
+
+footer div img {
+    order: 1;
+}
+
+@media screen and (min-width: 800px) {
+  footer div {
+    flex-direction: row;
+    padding: 4em;
+    margin-top: 0;
+
+  }
+}
+}
