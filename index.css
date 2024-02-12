@@ -19,7 +19,6 @@ body {
 }
 
 
-
 header {
    display: grid;
    grid-template-columns: 1fr 1fr;
@@ -30,7 +29,7 @@ header {
 @media screen and (min-width: 800px) {
     header .page {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
         grid-auto-rows: auto;
     }
 }
@@ -56,14 +55,6 @@ header > div > div {
     }
 }
 
-}
-lso be a grid with an 'auto' number of rows and two columns of 1fr. 
-Additionally it must have a gap between the columns of width 2em
-
-
-
-
-
 /*
     <section id="flexbox">
         The <section> element with id 'flexbox' must be display: flex with its child elements laid out in a column
@@ -73,15 +64,23 @@ Additionally it must have a gap between the columns of width 2em
         The <h2> inside the section must (on screens with a minimum width of 800px) have a font size of 6em
 
     <section id="grid">
-
-
-
 */
 
+#flexbox {
+    display: table-column;
+}
 
+#canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-
-
+#canvas h2 {
+    @media screen and (min-width: 800px) {
+        font-size: 6em;
+        }
+    }
 
 /*
 
@@ -98,11 +97,42 @@ Additionally it must have a gap between the columns of width 2em
         The <div> inside the section must start at column two and span two columns, start at row three and span three columns
 */
 
+#grid {
+    @media screen and (min-width: 800px) {
+        display: flex;
+        grid-template-rows: auto repeat(4, 250px);
+        grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
 
+#grid > div {
+    padding: 1em 1em 1em 1em;
+}
 
+#grid {
+    @media screen and (min-width: 800px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+#grid h2 {
+    @media screen and (min-width: 800px) {
+    grid-column: span 3;
+    text-align: right;
+    font-size: 6em;
+    }   
+}
+
+#grid div p:first-child{
+    @media screen and (min-width: 800px) {
+    grid-column: span 2;
+    }
+}
 
 
 /*
+
     <footer>
 
         The <div> inside the footer must be display: flex, with its child elements laid out in a column on screens with a width below 800px, and laid out in a row on screens with a minimum width of 800px.
