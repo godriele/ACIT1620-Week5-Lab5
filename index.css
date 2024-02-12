@@ -14,20 +14,51 @@
         The <div> inside that div, containing two paragraphs with the text "CSS Flexbox is a one-dimensional...", and "CSS Grid is a two-dimensional..." must (on screens with a minimum width of 800px) also be a grid with an 'auto' number of rows and two columns of 1fr. Additionally it must have a gap between the columns of width 2em
 
 */
-
-header {
-
-    @media screen and (min-width: 800px) {
-        .page {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: auto;
-        }
-    }
-
-
+body {
+    margin: 0;
 }
 
+
+
+header {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-auto-rows: auto;
+}
+
+
+@media screen and (min-width: 800px) {
+    header .page {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: auto;
+    }
+}
+
+header > div {
+    @media screen and (min-width: 800px) {
+        header .page {
+        display: grid;
+        grid-auto-rows: height max-content;
+        grid-auto-columns: auto;
+        }
+    }
+}
+
+header > div > div {
+    @media screen and (min-width: 800px) {
+        header .page {
+        display: grid;
+        grid-auto-rows: auto;
+        grid-auto-columns: 1fr 1fr;
+        gap: 2em;
+        }
+    }
+}
+
+}
+lso be a grid with an 'auto' number of rows and two columns of 1fr. 
+Additionally it must have a gap between the columns of width 2em
 
 
 
