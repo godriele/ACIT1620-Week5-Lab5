@@ -142,6 +142,7 @@ header > div > div {
     grid-column: 2 / span 2 ;
     grid-row: 3 / span 3;
      
+}
 
 /*
 
@@ -154,33 +155,35 @@ header > div > div {
         On screens wider than 800px, the <p> element inside the div must additionally have no top margin
 
 */
+footer div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 footer p {
+    order: 1;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+
+footer img {
     order: 2;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 0;
-}
-
-
-footer div img {
-    order: 1;
-    display: flex;
-    justify-content: center;
-    
 }
 
 @media screen and (min-width: 800px) {
-  footer div p {
-    flex-direction: row;
-    padding: 4em;
-    margin-top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    footer div {
+        flex-direction: row;
+        justify-content: space-between; 
+    }
 
-
+    footer p,
+    footer img {
+        margin: 0;  
+    }
   }
-}
-}
