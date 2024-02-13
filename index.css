@@ -155,34 +155,31 @@ header > div > div {
 
 */
 
-footer div{
-    display: flex;  
-    flex-direction: column;
-    width: 8000px;
-
-
-
-}
-
-footer div p {
+footer p {
     order: 2;
+    display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
-    display: flex;
     margin-top: 0;
 }
 
 
 footer div img {
     order: 1;
+    display: flex;
+    justify-content: center;
+    
 }
 
 @media screen and (min-width: 800px) {
-  footer div {
+  footer div p {
     flex-direction: row;
     padding: 4em;
     margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 
   }
 }
